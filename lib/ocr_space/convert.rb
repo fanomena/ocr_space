@@ -11,7 +11,7 @@ module OcrSpace
                                                     file: @files })
             @data = @data.parsed_response['ParsedResults']
           elsif url
-            @data = HTTParty.post('https://api.ocr.space/parse/image',
+            @data = HTTParty.post('https://apipro2.ocr.space/parse/image',
                                   body: { apikey: apikey,
                                           language: language,
                                           isOverlayRequired: isOverlayRequired,
@@ -32,7 +32,7 @@ module OcrSpace
                                                     file: @files })
             @data = @data.parsed_response['ParsedResults'][0]["ParsedText"].gsub(/\r|\n/, "")
           elsif url
-            @data = HTTParty.post('https://api.ocr.space/parse/image',
+            @data = HTTParty.post('https://apipro2.ocr.space/parse/image',
                                   body: { apikey: apikey,
                                           language: language,
                                           isOverlayRequired: isOverlayRequired,
