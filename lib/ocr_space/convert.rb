@@ -7,6 +7,7 @@ module OcrSpace
             @data = OcrSpace::FilePost.post('/parse/image',
                                             body: { apikey: apikey,
                                                     language: language,
+                                                    detectOrientation: true,
                                                     isOverlayRequired: isOverlayRequired,
                                                     file: @files })
             @data = @data.parsed_response['ParsedResults']
@@ -14,6 +15,7 @@ module OcrSpace
             @data = HTTParty.post('https://apipro2.ocr.space/parse/image',
                                   body: { apikey: apikey,
                                           language: language,
+                                          detectOrientation: true,
                                           isOverlayRequired: isOverlayRequired,
                                           url: url })
             @data = @data.parsed_response['ParsedResults']
@@ -28,6 +30,7 @@ module OcrSpace
             @data = OcrSpace::FilePost.post('/parse/image',
                                             body: { apikey: apikey,
                                                     language: language,
+                                                    detectOrientation: true,
                                                     isOverlayRequired: isOverlayRequired,
                                                     file: @files })
             @data = @data.parsed_response['ParsedResults'][0]["ParsedText"].gsub(/\r|\n/, "")
@@ -35,6 +38,7 @@ module OcrSpace
             @data = HTTParty.post('https://apipro2.ocr.space/parse/image',
                                   body: { apikey: apikey,
                                           language: language,
+                                          detectOrientation: true,
                                           isOverlayRequired: isOverlayRequired,
                                           url: url })
             @data = @data.parsed_response['ParsedResults'][0]["ParsedText"].gsub(/\r|\n/, "")
